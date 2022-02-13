@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Using Grid Inside Bootstrap Modal</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+    .bs-example{
+    	margin: 20px;
+        margin-top: 3%;
+    }
+   #countdown{
+       border: 1px solid red;
+   }
+   .bs-example > .cards > a:hover{
+       background: rgb(117, 69, 69);
+   }
+   .h1-text{
+    text-shadow: 0px 3px 0px #b2a98f,
+                 0px 14px 10px rgba(105, 105, 105, 0.15),
+                 0px 24px 2px rgba(148, 147, 147, 0.1),
+                 0px 34px 30px rgba(0,0,0,0.1);
+                 color: white;
+    margin-left: 10px;
+   }
+   .modal{
+       z-index: 1100;
+       color: white;
+   }
+   .time-container{
+       position: fixed;
+       z-index: 2200;
+       margin-top: 100px;
+   }
+
+   .fa-music{
+       margin-right: 15px;
+       margin-left: 15px;  
+   }
+
+   a{
+       border: 3px ridge rgb(214, 209, 209) !important;
+       border-radius: 15px !important;
+       background: rgb(4, 4, 100) !important;
+   }
+   
+   .logo{
+       display: flex;
+       margin-bottom: 10px;
+       margin-left: 15px;
+       justify-content: space-between;
+   } 
+</style>
+</head>
+<body>   
+<div class="bs-example">
+    <div class="header">
+        
+        <div class="header-logo">
+            <div class="logo">
+                <img src="sts.png" alt="" class="logo" height="9%" width="9%">
+            </div>
+        </div> 
+    </div>
+    <!-- Button HTML (to Trigger Modal) -->
+    <div class="cards">
+  <a href="#myModal" role="button" class="btn btn-lg btn-primary" data-bs-toggle="modal">
+      <div>
+  </div>Michael Jackson</a>
+  <a href="#myModal2" role="button" class="btn btn-lg btn-primary" data-bs-toggle="modal"><div> 
+  </div>Sauti Sol</a>
+  <a href="#myModal3" role="button" class="btn btn-lg btn-primary" data-bs-toggle="modal"><div> 
+  </div>Drake</a>
+  <a href="#myModal4" role="button" class="btn btn-lg btn-primary" data-bs-toggle="modal"><div>
+  </div>Rihanna</a>
+  <a href="#myModal5" role="button" class="btn btn-lg btn-primary" data-bs-toggle="modal"><div>
+  </div>Akon</a>
+  <a href="#myModal6" role="button" class="btn btn-lg btn-primary" data-bs-toggle="modal"><div>
+  </div>Wizkid</a>
+  <a href="#myModal7" role="button" class="btn btn-lg btn-primary" data-bs-toggle="modal"><div>
+  </div>Asa</a>
+  <a href="#myModal8" role="button" class="btn btn-lg btn-primary" data-bs-toggle="modal"><div>
+  </div>Burna Boy</a>
+  <a href="#myModal9" role="button" class="btn btn-lg btn-primary" data-bs-toggle="modal"><div>
+  </div>Sarkodie</a>
+        </div>
+    <!-- Modal HTML -->
+    <div id="myModal" class="modal fade .cards-inner" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Michael Jackson</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <h3>Michael Jackson</h3>
+        <p>
+            Michael Joseph Jackson (August 29, 1958 – June 25, 2009) was an American singer, songwriter and dancer. Dubbed the "King of Pop", he is regarded as one of the most significant cultural figures of the 20th century. Over a four-decade career, his contributions to music, dance and fashion, along with his publicized personal life, made him a global figure in popular culture. Jackson influenced artists across many music genres; through stage and video performances, he popularized complicated dance moves such as the moonwalk, to which he gave the name, as well as the robot.<br>
+            He is the most awarded music artist in history.
+            The eighth child of the Jackson family, Jackson made his professional debut in 1964 with his elder brothers Jackie, Tito, Jermaine and Marlon as a member of the Jackson 5 (later known as the Jacksons). Jackson began his solo career in 1971 while at Motown Records. He became a solo star with his 1979 album Off the Wall. His music videos, including those for "Beat It", "Billie Jean" and "Thriller" from his 1982 album Thriller, are credited with breaking racial barriers and transforming the medium into an artform and promotional tool. He helped propel the success of MTV and continued to innovate with videos for the albums Bad (1987).
+        </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary"  id="game-btn" onclick="timer();disableBtn()" >Start Game</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+  <!-- Modal HTML -->
+    <div id="myModal2" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sauti Sol</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <h3>Sauti Sol</h3>
+                    <p>
+                        Sauti Sol is a Kenyan afro-pop band formed in Nairobi, Kenya, by vocalists Bien-Aimé Baraza, Willis Chimano and Savara Mudigi in 2005.Initially an a cappella group, guitarist Polycarp Otieno joined before they named themselves Sauti Sol.
+
+Sauti Sol released their debut studio album Mwanzo on 1 November 2008, to critical acclaim. Their second studio album, Sol Filosofia, was released on 25 February 2011, earning the group a number of accolades and nominations in the process. On 18 June 2012, the band released a self-titled extended play in collaboration with South African rapper and record producer Spoek Mathambo. Their third studio album, Live and Die in Afrika, was released online on 21 November 2015 as a free download, available for 48 hours as an early Christmas present.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary game-btns"  id="game-btn" onclick="timer();disableBtn()"  onclick="timer();disableBtn()" >Start Game</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal HTML -->
+<div id="myModal3" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Drake</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <h3>Drake</h3>
+                <p>
+                    Aubrey Drake Graham (born October 24, 1986) is a Canadian rapper, singer, and actor. Gaining recognition by starring in the teen drama series Degrassi: The Next Generation (2001–08), Drake pursued a career in music releasing his debut mixtape Room for Improvement in 2006; he subsequently released the mixtapes Comeback Season (2007) and So Far Gone (2009) before signing with Young Money Entertainment.
+                    <br>
+                    As an entrepreneur, Drake founded the OVO Sound record label with longtime collaborator 40 in 2012. In 2013, Drake became the new "global ambassador" of the Toronto Raptors, joining the executive committee of the NBA franchise, while owning naming rights to its practice facility. In 2016, he began collaborating with American entrepreneur Brent Hocking on the bourbon whiskey Virginia Black; it eventually broke sale records in Canada. Drake has also designed fashion, the most notable including a sub-label collaboration with Nike, alongside other business ventures. In 2018, he was reportedly responsible for 5 per cent (CAD$440 million) of Toronto's CAD$8.8 billion annual tourism income.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary game-btns"  id="game-btn" onclick="timer();disableBtn()"  onclick="timer();disableBtn()" >Start Game</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal HTML -->
+<div id="myModal4" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Rihanna</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <h3>Rihanna</h3>
+                <p>
+                    Robyn Rihanna Fenty (born February 20, 1988) is a Barbadian singer, actress, fashion designer, and businesswoman. Born in Saint Michael and raised in Bridgetown, Barbados, Rihanna was discovered by American record producer Evan Rogers who invited her to the United States to record demo tapes. After signing with Def Jam in 2005, she soon gained recognition with the release of her first two studio albums, Music of the Sun (2005) and A Girl Like Me (2006), both of which were influenced by Caribbean music and peaked within the top ten of the US Billboard 200 chart.
+<br>
+                    Rihanna's third album, Good Girl Gone Bad (2007), incorporated elements of dance-pop and established her status as a sex symbol in the music industry. The chart-topping single "Umbrella" earned Rihanna her first Grammy Award and catapulted her to global stardom. She continued to mix pop, dance, and R&B genres on her next studio albums, Rated R (2009), Loud (2010), Talk That Talk (2011), and Unapologetic (2012), which became her first Billboard 200 number one. 
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary game-btns"  id="game-btn" onclick="timer();disableBtn()" >Start Game</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal HTML -->
+<div id="myModal5" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Akon</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <h3>Akon</h3>
+                <p>
+                    Aliaune Damala Badara Akon Thiam (/ˈeɪkɒn/; born April 16, 1973), known mononymously as Akon, is a Senegalese-American singer, songwriter, record producer, and entrepreneur. He rose to prominence in 2004 following the release of "Locked Up" (featuring Styles P), the first single from his debut album Trouble (2004), followed by the second single "Lonely".
+<br>
+His second album, Konvicted (2006), received three Grammy Award nominations for Best Contemporary R&B Album, and for Best Rap/Sung Collaboration for "Smack That" (featuring Eminem) and "I Wanna Love You" (featuring Snoop Dogg). Both singles became Billboard Hot 100 top ten hits, followed up by "Don't Matter" and "Sorry, Blame It on Me". His third studio album Freedom (2008) was led by the single "Right Now (Na Na Na)".
+
+He is the first solo artist to hold both the number one and two spots simultaneously on the Billboard Hot 100 charts twice. Akon has had four songs certified as 3× platinum, three songs certified as 2× platinum, more than ten songs certified as 1× platinum and more than ten songs certified as gold by the RIAA. He was listed by Guinness World Records as the number-one selling artist for master ringtones in the world.
+                </p>
+                <!-- <div>
+                    <h3>Top Artistes</h3>
+                    <p><li>Carrie Underwood</li>
+                    <li>George Strait</li>
+                    <li>Blake Shelton</li></p>
+                </div>
+         -->
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary game-btns"  id="game-btn" onclick="timer();disableBtn()"  onclick="timer();disableBtn()" >Start Game</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal HTML -->
+<div id="myModal6" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Wizkid</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <h3>Wizkid</h3>
+                <p>
+                    Ayodeji Ibrahim Balogun (born 16 July 1990), known professionally as Wizkid, is a Nigerian singer and songwriter. He began recording music at the age of 11 and released a collaborative album with the Glorious Five, a group he and a couple of his church friends formed. In 2009, Wizkid signed a record deal with Banky W's Empire Mates Entertainment (E.M.E). He later rose to the limelight after releasing "Holla at Your Boy", the lead single from his debut studio album, Superstar (2011), which also spawned the singles "Tease Me/Bad Guys" and "Don't Dull".
+
+                    <br>In September 2014, he released the self-titled second studio album, Ayo. The album was supported by six singles, including the song "Jaiye Jaiye". Wizkid left E.M.E after his contract expired. In 2016, Wizkid achieved international recognition following his collaboration with Drake on the hit single "One Dance", which reached number-one on the US Billboard Hot 100, and topped the charts in 14 additional countries. 
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary game-btns"  id="game-btn" onclick="timer();disableBtn()"  onclick="timer();disableBtn()" >Start Game</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal HTML -->
+<div id="myModal7" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Asa</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <h3>Asa</h3>
+                <p>
+                    Aṣa was born in Paris to Nigerian parents who were working and studying cinematography in France. Her family returned to live in Nigeria when she was two years old. Her parents hails from Itoku, Abeokuta South local government area, Ogun State, Nigeria  but Aṣa grew up in Lagos city, in the south-western part of Nigeria, and 18 years later, returned to Paris, where her life as an artist took off. She has three brothers with her being the fourth and only female child of the family.
+<br>
+                    Asa's music influences grew over the years from the collection of great music her father had built up for his work as a cinematographer. These records featuring American, Nigerian and African soul classics, included musical greats such as Marvin Gaye, Fela Kuti, Bob Marley, Aretha Franklin, King Sunny Adé, Diana Ross, Nina Simone, Miriam Makeba. Aṣa drew inspiration from the collection of her father's playlist.
+
+                    Aṣa returned to France at the age of 20 to study at the IMFP school of Jazz music, where she was told by teachers that she should go ahead and become a recording artist because she was ready and needed no schooling. Back in Nigeria, her first single, "Eyé Adaba," was beginning to get airplay. 
+                </p>
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary game-btns"  id="game-btn" onclick="timer();disableBtn()"  onclick="timer();disableBtn()" >Start Game</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal HTML -->
+<div id="myModal8" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Burna Boy</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <h3>Burna Boy</h3>
+                <p>
+                    Damini Ebunoluwa Ogulu (born 2 July 1991),known professionally as Burna Boy, is a Nigerian singer and rapper. He is one of the biggest and most successful African artists.
+
+                    He rose to prominence in 2012 after releasing "Like to Party", the lead single from his debut studio album L.I.F.E (2013). In 2017, Burna Boy signed with Bad Habit/Atlantic Records in the United States and Warner Music Group internationally.<br> His third studio album Outside marked his major-label debut.In 2019, he won Best International Act at the 2019 BET Awards, and was announced as an Apple Music Up Next artist. His fourth studio album African Giant was released in July 2019; it won Album of the Year at the 2019 All Africa Music Awards and was nominated for a Best World Music Album at the 62nd Annual Grammy Awards. He was awarded the African Artist of the year at the 2020 VGMA's. In 2020, his album Twice as Tall was nominated for the same category at the 63rd Annual Grammy Awards, making him the first Nigerian with back-to-back nominations at the Grammys. In 2021, Twice as Tall won the Best World Music Album at the 63rd Annual Grammy Awards.
+                </p>
+                <!-- <div>
+                    <h3>Top Artistes</h3>
+                    <p><li>Carrie Underwood</li>
+                    <li>George Strait</li>
+                    <li>Blake Shelton</li></p>
+                </div> -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary game-btns"  id="game-btn" onclick="timer();disableBtn()" >Start Game</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal HTML -->
+<div id="myModal9" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Sakordie</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <h3>Sakordie</h3>
+                <p>
+                    Michael Owusu Addo (born July 10, 1988) known professionally as Sarkodie, is a Ghanaian rapper, songwriter and entrepreneur from Tema. His contributions to the Ghanaian music industry have earned him numerous accolades, including the Vodafone Ghana Music Award for "Artiste of the Decade". 
+                    He was announced the first winner of BET's Best International Flow artist at the 2019 BET Hip Hop Awards.<br> He is also considered one of the major proponents of the Azonto genre and dance and one of the most successful African rappers of all time.
+                    Sarkodie often raps in his native language Twi, a Ghanaian Language and is considered a "multifaceted rapper" due to the various musical styles he possesses. Sarkodie is often named as one of Africa's greatest hip hop artists. MTV Base ranked him sixth on its list of the Hottest African MCs in 2014. In 2013, Lynx TV ranked him first on its list of the "Top 10 Ghanaian Rappers of All Time".In 2015, AfricaRanking.com ranked him third on its list of the "Top 10 African Rappers of 2015".
+                </p>
+                <!-- <div>
+                    <h3>Top Artistes</h3>
+                    <p><li>Michael Jackson</li>
+                    <li>Elton John</li>
+                    <li>Taylor Swift</li></p>
+                </div> -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary game-btns"  id="game-btn" onclick="timer();disableBtn()">Start Game</button>
+            </div>
+        </div>
+    </div>
+</div>
+  <div class="timer-container">
+    <div id="countdown" style="box-shadow: inset 0 0 10px; box-shadow: 0 0 10px 5px; color: white;">20</div>
+  </div>
+</body>
+
+
+<!-- script for javascript -->
+<script>
+  const items = document.querySelectorAll("a")
+  items.forEach(card => card.addEventListener('click', newColor))
+  function newColor(){
+    console.log('this is the stuff' + this);
+    //this will chnagethe color of the clicked card
+    this.style.background='red';
+    this.style.color='red';
+  }
+//This function changes the text from start game to singing
+  const buttons = document.querySelectorAll(".game-btns")
+  buttons.forEach(btn => btn.addEventListener('click', singasong))
+  function singasong(){
+      console.log('this should change the btn to singing')
+      console.log(this)
+      buttons.disabled=true;
+      this.innerHTML='Singing...'
+  }
+//This function disables the button after it has been clicked 
+function disableBtn(){
+  const button = document.querySelector('button');
+  console.log('this is supposed to disable the button')
+  document.getElementById("game-btn").innerHTML='Singing...';
+  document.getElementById("game-btn").style.background='blue';
+  button.disabled=true;
+}
+//Thi is the countdown timer function
+function timer(){
+    console.log('game should start')
+  var timeleft = 20;
+var downloadTimer = setInterval(function(){
+  if(timeleft <= 0){
+    console.log('time is over, refresh the browser')
+    clearInterval(downloadTimer);
+    document.getElementById("countdown").innerHTML = "00";
+    //this is to refresh the browser
+    location.reload();
+  } else {
+    document.getElementById("countdown").innerHTML = timeleft;
+  }
+  timeleft -= 1;
+}, 1000);
+}
+
+</script>
+</html>                            
